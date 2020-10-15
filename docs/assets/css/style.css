@@ -139,6 +139,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu > ul > li {
   position: relative;
   white-space: nowrap;
+  
 }
 
 .nav-menu a {
@@ -160,10 +161,17 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
   text-decoration: none;
   color: #fff;
+  
 }
 
 .nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
   color: #149ddd;
+  
+}
+
+.nav-menu ul li a.current {
+  background-color:   #6f7180;
+  ;
 }
 
 /* Mobile Navigation */
