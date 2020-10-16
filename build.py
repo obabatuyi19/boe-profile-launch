@@ -1,3 +1,10 @@
+def apply_template(content):
+    template = open("./templates/base.html").read()
+    
+    return template
+
+
+
 
 def main():
 
@@ -26,6 +33,12 @@ def main():
             "filename": "content/resume.html",
             "output": "docs/resume.html",
             "title": "My Resume",
+        },
+        {
+            #blog section
+            "filename": "content/blog.html",
+            "output": "docs/blog.html",
+            "title": "My programming blog",
         },
 
     ]
@@ -57,16 +70,20 @@ def main():
         #print('page:', page)
 
         # Read in the base template
-        template = open("./templates/base.html").read()
+        #template = open("./templates/base.html").read()
+        
+        
         #print(template)
 
         # Read in the content of the index HTML page
         #print(page["filename"])
-        index_content = open(page["filename"]).read()
+        content = open(page["filename"]).read()
+
+        template = apply_template(content)
         #print(index_content)
 
         # Use the string replace
-        finished_index_page = template.replace("{{content}}", index_content).replace("{{title}}", page['title'])
+        finished_index_page = template.replace("{{content}}", content).replace("{{title}}", page['title'])
 
         open(page["output"], "w+").write(finished_index_page)
 
